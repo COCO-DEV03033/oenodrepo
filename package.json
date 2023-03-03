@@ -1,0 +1,49 @@
+{
+    "name": "oenod",
+    "version": "2.1.04",
+    "description": "WebRTC SFU browser-based video calls",
+    "main": "Server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node app/src/Server.js",
+        "start:dev": "nodemon app/src/Server.js",
+        "compile": "npx browserify public/sfu/MediasoupClientCompile.js -o public/sfu/MediasoupClient.js",
+        "lint": "npx prettier --write ."
+    },
+    "keywords": [
+        "webrtc",
+        "socket.io",
+        "sfu",
+        "nodejs",
+        "video"
+    ],
+    "author": "Jay Mac",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/COCO-DEV03033/oenodrepo.git"
+    },
+    "license": "AGPL-3.0",
+    "dependencies": {
+        "@sentry/integrations": "7.37.1",
+        "@sentry/node": "7.37.1",
+        "body-parser": "1.20.1",
+        "colors": "1.4.0",
+        "compression": "1.7.4",
+        "cors": "2.8.5",
+        "crypto-js": "4.1.1",
+        "express": "4.18.2",
+        "httpolyglot": "0.1.2",
+        "mediasoup": "3.11.8",
+        "mediasoup-client": "3.6.77",
+        "ngrok": "^3.4.1",
+        "qs": "6.11.0",
+        "socket.io": "4.6.0",
+        "swagger-ui-express": "4.6.0",
+        "uuid": "9.0.0",
+        "yamljs": "0.3.0"
+    },
+    "devDependencies": {
+        "node-fetch": "^2.6.7",
+        "prettier": "2.8.4"
+    }
+}

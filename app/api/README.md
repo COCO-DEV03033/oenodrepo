@@ -1,0 +1,30 @@
+![restAPI](restAPI.png)
+
+## Create a meeting
+
+Create a meeting with a `HTTP request` containing the `API_KEY` sent to OenodLive's server. The response contains a `meeting` URL that can be `embedded` in your client within an `iframe`.
+
+```bash
+# js
+node meeting.js
+node join.js
+
+# php
+php meeting.php
+php join.php
+
+# python
+python3 meeting.py
+python3 join.py
+
+# bash
+./meeting.sh
+./join.sh
+```
+
+## Embed a meeting
+
+Embedding a meeting into a `service` or `app` requires using an `iframe` with the `src` attribute specified as the `meeting` from `HTTP response`.
+
+```html
+## Fast Integration
