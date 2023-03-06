@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <!-- https://github.com/mikecao/umami -->
+
+
+        <!-- Title and Icon -->
+
+        <title>OENOD LIVE- Host Protected login required.</title>
+        <link rel="shortcut icon" href="../images/logo.svg" />
+        <link rel="apple-touch-icon" href="../images/logo.svg" />
+
+        <!-- Meta Information -->
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta
+            name="description"
+            content="OENOD LIVE powered by WebRTC and mediasoup, Real-time secure video calls, messaging and screen sharing capabilities in the browser."
+        />
+        <meta
+            name="keywords"
+            content="webrtc, oenod, mediasoup, mediasoup-client, self hosted, voip, sip, real-time communications, chat, messaging, meet, webrtc stun, webrtc turn, webrtc p2p, webrtc sfu, video meeting, video chat, video conference, multi video chat, multi video conference, peer to peer, p2p, sfu, rtc, alternative to, zoom, microsoft teams, google meet, jitsi, meeting"
+        />
+
+        <!-- https://ogp.me -->
+
+        <meta property="og:type" content="app-webrtc" />
+        <meta property="og:site_name" content="OENOD LIVE" />
+        <meta property="og:title" content="Click the link to make a call." />
+        <meta
+            property="og:description"
+            content="OENOD LIVEcalling provides real-time video calls, messaging and screen sharing."
+        />
+
+        <!-- StyleSheet -->
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" />
+        <link rel="stylesheet" href="../css/landing.css" />
+
+        <!-- Js scripts -->
+
+        <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+        <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    </head>
+    <body class="is-boxed has-animations">
+        <div class="body-wrap">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-header-inner">
+                        <div class="brand header-brand">
+                            <h1 class="m-0">
+                                <a href="/">
+                                    <!-- <img class="header-logo-image" src="../images/logo.svg" alt="Logo" /> -->
+                                    OENOD LIVE
+                                </a>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <section class="hero">
+                    <div class="container">
+                        <div class="hero-inner">
+                            <div class="hero-copy">
+                                <div id="loginForm">
+                                    <br />
+                                    <div class="mb-12">
+                                        <input
+                                            id="username"
+                                            class="form-input"
+                                            type="name"
+                                            placeholder="Username"
+                                            style="border-radius: 6px"
+                                            required
+                                        />
+                                    </div>
+                                    <br />
+                                    <div class="mb-12">
+                                        <input
+                                            id="password"
+                                            class="form-input"
+                                            type="password"
+                                            style="border-radius: 6px"
+                                            placeholder="Password"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="mt-24 mb-32">
+                                        <button id="loginButton" class="button button-primary button-block">
+                                            Login
+                                        </button>
+                                    </div>
+                                </div>
+                                <script>
+                                    let usernameInput = document.getElementById('username');
+                                    let passwordInput = document.getElementById('password');
+                                    let loginBtn = document.getElementById('loginButton');
+
+                                    usernameInput.onkeyup = (e) => {
+                                        if (e.keyCode === 13) {
+                                            e.preventDefault();
+                                            login();
+                                        }
+                                    };
+                                    passwordInput.onkeyup = (e) => {
+                                        if (e.keyCode === 13) {
+                                            e.preventDefault();
+                                            login();
+                                        }
+                                    };
+
+                                    loginBtn.onclick = (e) => {
+                                        login();
+                                    };
+
+                                    function login() {
+                                        let username = document.getElementById('username').value;
+                                        let password = document.getElementById('password').value;
+
+                                        if (username && password) {
+                                            window.location.href = `/login?username=${username}&password=${password}`;
+                                            return;
+                                        }
+                                        if (!username && !password) {
+                                            alert('Username and Password required');
+                                            return;
+                                        }
+                                        if (!username) {
+                                            alert('Username required');
+                                            return;
+                                        }
+                                        if (!password) {
+                                            alert('Password required');
+                                            return;
+                                        }
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+        </div>
+
+        <script defer src="../js/landing.js"></script>
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+    </body>
+</html>

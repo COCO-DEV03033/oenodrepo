@@ -22,6 +22,8 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = yamlJS.load(path.join(__dirname + '/../api/swagger.yaml'));
 const Sentry = require('@sentry/node');
 const { CaptureConsole } = require('@sentry/integrations');
+const mongoose = require("mongoose");
+const apiRouter = require("./router/router").router;
 
 // Slack API
 const CryptoJS = require('crypto-js');
@@ -42,6 +44,23 @@ const io = require('socket.io')(httpsServer, {
     maxHttpBufferSize: 1e7,
     transports: ['websocket'],
 });
+
+const uri = "mongodb://localhost/oenod"
+async function connectDB () {
+try {
+    mongoose.set("useNewUrlParser", true);
+    mongoose.set("useUnifiedTopology", true);
+    mongoose.set("useCreateIndex", true);
+    mongoose.set("useFindAndModify", false);
+    await mongoose.connect(uri);
+    console.log("MongoDB Connected...");
+    return;
+ } catch (err) {
+    process.exit(1);
+ }
+}
+
+connectDB()
 const host = 'https://' + 'localhost' + ':' + config.listenPort; // config.listenIp
 
 const hostCfg = {
@@ -78,6 +97,8 @@ if (sentryEnabled) {
     */
 }
 
+
+
 // directory
 const dir = {
     public: path.join(__dirname, '../../', 'public'),
@@ -88,6 +109,7 @@ const views = {
     about: path.join(__dirname, '../../', 'public/views/about.html'),
     landing: path.join(__dirname, '../../', 'public/views/landing.html'),
     login: path.join(__dirname, '../../', 'public/views/login.html'),
+    signup: path.join(__dirname, '../../', 'public/views/signup.html'),
     newRoom: path.join(__dirname, '../../', 'public/views/newroom.html'),
     notFound: path.join(__dirname, '../../', 'public/views/404.html'),
     permission: path.join(__dirname, '../../', 'public/views/permission.html'),
@@ -124,6 +146,9 @@ if (!announcedIP) {
 } else {
     startServer();
 }
+
+
+app.use("/api", apiRouter);
 
 function startServer() {
     // Start the app
@@ -169,23 +194,28 @@ function startServer() {
 
     // handle login on host protected
     app.get(['/login'], (req, res) => {
-        if (hostCfg.protected == true) {
-            let ip = getIP(req);
-            log.debug(`Request login to host from: ${ip}`, req.query);
-            const { username, password } = req.query;
-            if (username == hostCfg.username && password == hostCfg.password) {
-                hostCfg.authenticated = true;
-                authHost = new Host(ip, true);
-                log.debug('LOGIN OK', { ip: ip, authorized: authHost.isAuthorized(ip) });
-                res.sendFile(views.landing);
-            } else {
-                log.debug('LOGIN KO', { ip: ip, authorized: false });
-                hostCfg.authenticated = false;
-                res.sendFile(views.login);
-            }
-        } else {
-            res.redirect('/');
-        }
+        res.sendFile(views.login);
+        // if (hostCfg.protected == true) {
+        //     let ip = getIP(req);
+        //     log.debug(`Request login to host from: ${ip}`, req.query);
+        //     const { username, password } = req.query;
+        //     if (username == hostCfg.username && password == hostCfg.password) {
+        //         hostCfg.authenticated = true;
+        //         authHost = new Host(ip, true);
+        //         log.debug('LOGIN OK', { ip: ip, authorized: authHost.isAuthorized(ip) });
+        //         res.sendFile(views.landing);
+        //     } else {
+        //         log.debug('LOGIN KO', { ip: ip, authorized: false });
+        //         hostCfg.authenticated = false;
+        //         res.sendFile(views.login);
+        //     }
+        // } else {
+        //     res.redirect('/');
+        // }
+    });
+
+    app.get(['/signUp'], (req, res) => {
+        res.sendFile(views.signup);
     });
 
     // set new room name and join

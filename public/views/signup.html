@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
 
     <!--====== Title ======-->
-    <title>OenodLive | Sign In</title>
+    <title>OenodLive | Sign Up</title>
 
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -102,14 +102,17 @@
                         data-wow-duration="1.3s"
                         data-wow-delay="0.5s"
                       >
-                        Sign In
+                        Sign Up
                       </h2>
                       <p class="header-text mt-30" >
-                        Don't you have an account?&nbsp;&nbsp;&nbsp; <a href="/signUp"> SignUp Here &nbsp;&nbsp;&nbsp; <i class="fas fa-long-arrow-right" ></i> </a>
+                        Do you already have account?&nbsp;&nbsp;&nbsp; <a href="/login"> Login Here &nbsp;&nbsp;&nbsp; <i class="fas fa-long-arrow-right" ></i> </a>
                       </p>
+                      <input type="text" class="form-input-fname col-lg-5 mt-30" placeholder="First Name" >
+                      <input type="text" class="form-input-lname col-lg-5 mt-30" placeholder="Last Name" >
                       <input type="text" class="form-input col-lg-12 mt-30" placeholder="email" >
                       <input type="password" class="form-input col-lg-12 mt-30" placeholder="password" >
-                      <a class="login-page-btn mt-40 pt-15">Login</a>
+                      <input type="password" class="form-input col-lg-12 mt-30" placeholder="confirm your password" >
+                      <a class="signup-page-btn mt-40 pt-15">Create Account</a>
                     </div>
                   </div>
                 </div>
@@ -123,44 +126,6 @@
         <!-- header hero -->
       </header>
       <!--====== HEADER PART ENDS ======-->
-
-    <!-- <div class="signin container">
-        <div class="row">
-            <div class="header">
-                <img src="../images/logo.png" width="140px" alt="">
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm 10">
-                <div class="login-title">
-                    <p><span>Sign In</span><span class="dot">.</span></p>
-                </div>
-                <div class="login-subtitle">
-                    <p>Don't you have an account? <a href="/signup" class="dot">Sign Up Here</a> </p>
-                </div>
-                <div class="login-main">
-                    <div class="row">
-                        <input type="text" name="name" id="email" placeholder="email" oninput="email_val(this.value)">
-                        <div class="email_err err">* Please input email correctly (must include @ symbol)</div>
-                    </div>
-                    <div class="row">
-                        <input type="password" name="password" id="password" placeholder="password"
-                            oninput="password_val(this.value)">
-                        <div class="password_err err">* password must be grater than 5 characters</div>
-                    </div>
-                    <div class="row login-action">
-                        <button type="button" class="btn-orange" id="submit"><i class="fa fa-sign-in"></i>
-                            &nbsp;&nbsp;&nbsp; Login </button>
-
-                        <a type="button" class="btn-normal" id="customBtn"><i class="fa fa-google-plus"></i>
-                            &nbsp;&nbsp;&nbsp; Login
-                            With Google </a>
-                    </div>
-
-                </div>
-            </div>
-            <div id="snackbar"></div>
-            <div id="name"></div>
-        </div>
-    </div> -->
 
 
     <!--====== Javascript Files ======-->

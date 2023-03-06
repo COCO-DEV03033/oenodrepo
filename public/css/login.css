@@ -1,0 +1,152 @@
+body {
+  background-image: url(../images/login-back.png);
+  position: absolute;
+  left: 0px;
+  margin: 0px;
+}
+
+div.signin {
+  background: linear-gradient(61.14deg, #101010 43.65%, rgba(16, 16, 16, 0.951111) 58.14%, rgba(16, 16, 16, 0.8) 69.13%, rgba(16, 16, 16, 0.6) 95.91%);
+  width: 100vw;
+  height: 96vh;
+  padding-top: 5vh;
+}
+
+.main {
+  width: 30%;
+  margin-left: 5%;
+}
+
+.login-title {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 125.7%;
+  /* identical to box height, or 63px */
+  color: #FFFFFF;
+}
+
+.dot {
+  color: #E1703A;
+}
+
+.login-subtitle {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+
+  color: #FFFFFF;
+}
+
+.row {
+  width: 95%;
+  margin-top: 20px;
+}
+
+input {
+  width: 94%;
+  height: 45px;
+  margin-right: 4px;
+  background: #1E1D1D;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 24px;
+  padding: 5px;
+  padding-left: 20px;
+}
+
+/* input[name='password'] {
+  width: 94%;
+} */
+
+.btn-orange {
+  background: #FF6D1B;
+  border-radius: 29.5px;
+
+  text-align: center;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height, or 150% */
+  color: #FFFFFF;
+  padding: 15px 20px;
+  float: left;
+
+}
+
+.btn-normal {
+
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  /* or 167% */
+
+
+  color: #FFFFFF;
+  padding: 15px 20px;
+  float: right;
+  margin-right: 10px;
+}
+
+.login-action {
+  margin-top: 70px !important;
+
+}
+a {
+  cursor: pointer;
+}
+.err{
+  color: red;
+  display: none;
+  font-size: 20px;
+}
+
+#snackbar {
+    visibility: hidden;
+    min-width: 400px;
+    margin-left: -125px;
+    background-color: purple;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 80px;
+    font-size: 25px;
+  }
+  
+  #snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 4.5s;
+    animation: fadein 0.5s, fadeout 0.5s 4.5s;
+  }
+  
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 80px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 80px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 80px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 80px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
